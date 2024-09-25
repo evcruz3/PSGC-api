@@ -19,6 +19,29 @@ REST Server of the PSGC lookup.
     uvicorn app.main:app
     ```
 
+## Running the Server in a Container
+
+
+1. **Build the Docker image**:
+
+   ```bash
+   docker build -t myapp .
+   ```
+
+2. **Run the container**:
+
+   ```bash
+   docker run -d -p 8000:8000 --name myapp-container myapp
+   ```
+
+   If you want to override or add environment variables directly during the run, you can do so using the `-e` flag:
+
+   ```bash
+   docker run -d -p 8000:8000 --name myapp-container -e SOME_ENV_VARIABLE=value myapp
+   ```
+
+
+
 ## Running the Server on Testing/Production Mode
 
 For testing/production, the environment variables are configured via Kubernetes.
